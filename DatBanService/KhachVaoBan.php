@@ -16,7 +16,11 @@ function dispInfo() {
     $db->execute();
 
     if ($db->getRowCount() > 0) {
-        $db->query('UPDATE ban SET TrangThai = 1 WHERE MaBan = '.$maBan.' ');
+        $db->prepare('UPDATE ban SET TrangThai = :trangThai WHERE MaBan = :maBan');
+        $db->bind(':trangThai', 1);
+        $db->bind(':maBan', $maBan);
+        $db->execute();
+
         echo 'success';
 
         include_once '../Firebase.php';
