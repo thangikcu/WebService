@@ -43,7 +43,7 @@ function dispInfo() {
         if ($db->getRowCount() > 0) {
             $lastToken = $db->getRow()['Token'];
 
-            if ($mode == "auto") {
+            if ($mode == "AUTO") {
 
                 if ($token != $lastToken) {
                     echo "other";
